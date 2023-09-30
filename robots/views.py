@@ -21,7 +21,6 @@ def robot_create_view(request: HttpRequest):
 
         validated_data['serial'] = f"{validated_data['model']}-{validated_data['version']}"
         new_record = Robot.objects.create(**validated_data)
-        new_record.save()
         
         # Date string to datetime object (inner django serializer requirement)
         date_format = '%Y-%m-%d %H:%M:%S'
